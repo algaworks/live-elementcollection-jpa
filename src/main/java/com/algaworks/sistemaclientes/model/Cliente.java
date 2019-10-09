@@ -22,15 +22,34 @@ public class Cliente {
 
     private String nome;
 
+//    @ElementCollection
+//    @CollectionTable(name = "cliente_endereco",
+//            joinColumns = @JoinColumn(name = "cliente_id"))
+//    @Column(name = "endereco")
 //    private List<String> enderecos;
 
+//    @ElementCollection
+//    @CollectionTable(name = "cliente_endereco",
+//            joinColumns = @JoinColumn(name = "cliente_id"))
 //    private List<Endereco> enderecos;
 
+//    @ElementCollection
+//    @CollectionTable(name = "cliente_endereco",
+//            joinColumns = @JoinColumn(name = "cliente_id"))
+//    @Column(name = "endereco")
+//    @MapKeyColumn(name = "tipo")
 //    private Map<String, String> enderecos;
 
+//    @ElementCollection
+//    @CollectionTable(name = "cliente_endereco",
+//            joinColumns = @JoinColumn(name = "cliente_id"))
+//    @MapKeyColumn(name = "tipo")
 //    private Map<String, Endereco> enderecos;
 
-//    private Map<TipoEndereco, Endereco> enderecos;
-
-
+    @ElementCollection
+    @CollectionTable(name = "cliente_endereco",
+            joinColumns = @JoinColumn(name = "cliente_id"))
+    @MapKeyColumn(name = "tipo")
+    @MapKeyEnumerated(EnumType.STRING)
+    private Map<TipoEndereco, Endereco> enderecos;
 }
